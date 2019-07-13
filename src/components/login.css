@@ -1,0 +1,28 @@
+.a1{
+  padding-top: 40px;
+  margin-bottom: 40px;
+}
+.a2{
+  width:100px;
+  font-weight: bold;
+  background-color: #dff9fb
+}
+.a3{
+  width: 150px;
+  height: 24px;
+}
+.a4{
+  margin-top: 20px;
+  width: 100px;
+  font-weight: bold;
+  background-color: #34ace0
+}
+.a4:hover{
+  background-color: #227093;
+  color:white;
+}
+.a5{
+ margin-top: 100px;
+ width: 400px;
+ height: 300px;
+}
