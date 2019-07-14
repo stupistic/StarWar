@@ -10,7 +10,7 @@ class SearchPlanet extends Component {
     term: '',
     Planet:'',
     Planetsdata: ''
-    
+
   }
 
 
@@ -35,7 +35,9 @@ await axios.get(`https://swapi.co/api/planets/?search=${SearchTerm}`)
 .then(response => this.setState({ Planet: response.data.results[0] }))
 .catch(err => console.log(err))
   }
-
+ refreshPage(){
+      window.location.reload();
+  }
 
 
   render() {
@@ -45,7 +47,7 @@ await axios.get(`https://swapi.co/api/planets/?search=${SearchTerm}`)
     return <div className='container-fluid text-center  b3'>
         <div className='b7'>
           <span className='b6 '>Star Wars Planets </span>
-          <div className='float-right  b1'><span className='b4'>{this.props.user[0]}</span><button className='b5'>Logout</button></div>
+          <div className='float-right  b1'><span className='b4'>{this.props.user[0]}</span><button className='b5' onClick={this.refreshPage}>Logout</button></div>
         </div>
 
           <form  onSubmit={ e => e.preventDefault()} className='text-center'>
@@ -54,10 +56,10 @@ await axios.get(`https://swapi.co/api/planets/?search=${SearchTerm}`)
                 value={this.state.term}
                 className = 'text-center b2'
                 placeholder ='Enter planet name'/>
-                <button className='' onClick={this.OnSubmitClick}>Search</button>
+                <button className='b8' onClick={this.OnSubmitClick}>Search</button>
           </form>
 
-            <div className='container'>
+            <div className='container-fluid'>
             <Planet detail = {this.state.Planet}/>
 
             </div>
