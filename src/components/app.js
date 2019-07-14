@@ -1,8 +1,10 @@
 import React from 'react';
 import Login from './login'
 
+
+
 const App = () => {
-  return <div>
+  return <div className='container'>
         <Login />
          </div>
 }

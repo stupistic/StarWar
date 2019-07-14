@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './login.css'
 import axios from 'axios'
+import SearchBar from './searchPlanet'
 
 
 class Login extends Component {
@@ -12,18 +13,18 @@ class Login extends Component {
 
     UserNameFromBackend: '',
     PasswordFromBackend:'',
+    LoginSUCCESS: false,
+    LoginFAIL: false
 
-    LoginStatus: false
 
 
   }
+
 
   OnSubmitClick = async () => {
 const usernamefromclient = this.state.UserNameFromClient
 
 
-
-// const UBackend = this.state.UserNameFromBackend[0]
 
  // console.log(UBackend)
  //  console.log(PBackend)
@@ -38,16 +39,18 @@ const usernamefromclient = this.state.UserNameFromClient
           .catch( err => console.log(err))
 
   const CheckAuthentication = async () => {
-
+    const usernamefromclient = await this.state.UserNameFromClient
+    const UBackend = await this.state.UserNameFromBackend[0]
     const PBackend = await this.state.PasswordFromBackend[0]
     const PClient =  await this.state.PasswordFromClient
-    if(PBackend === PClient){
+
+    if(PBackend === PClient && usernamefromclient === UBackend){
       console.log('Successfully Login')
-      this.setState({ LoginStatus: 'Successfully Login'
+      this.setState({ LoginSUCCESS: 'Successfully Login'
     })
     }else{
       console.log('Invalid Username or Password')
-      this.setState({ LoginStatus: 'Invalid Username or Password' })
+      this.setState({ LoginFAIL: 'Invalid Username or Password' })
     }
     }
    CheckAuthentication()
@@ -62,41 +65,48 @@ const usernamefromclient = this.state.UserNameFromClient
 
   render() {
 
+if(this.state.LoginSUCCESS){
+
+  return <div >
+  <SearchBar user={this.state.UserNameFromBackend}/>
+  </div>
+}else{
+  return <div className='container text-center shadow a5'>
+
+          <h1 className='a1'>STAR WARS</h1>
+
+                  <div className='container text-center'>
+                    <form onSubmit={(e) => e.preventDefault()}>
+
+                      <label className='a2'>User Name</label>
+                      <input
+                       onChange={ e => this.setState({ UserNameFromClient: e.target.value })}
+                       value={this.state.UserName}
+                       placeholder='Enter Username'
+                       className='a3 text-center'/>
+
+                         <br />
+
+                      <label className='a2'>Password</label>
+                      <input
+                      onChange={(e) => this.setState({ PasswordFromClient: e.target.value })}
+                      type='password'
+                      value={this.state.Password}
+                      placeholder='Enter Password'
+                      className='a3 text-center'/>
+
+                      <br />
+
+                      <button className='a4' onClick={this.OnSubmitClick }>Submit</button>
+                    </form>
+                  </div>
+
+       <div className='a6'>{this.state.LoginFAIL}</div>
+
+        </div>
+}
 
 
-    return <div className='container text-center shadow a5'>
-
-            <h1 className='a1'>STAR WARS</h1>
-
-                    <div className='container text-center'>
-                      <form onSubmit={(e) => e.preventDefault()}>
-
-                        <label className='a2'>User Name</label>
-                        <input
-                         onChange={ e => this.setState({ UserNameFromClient: e.target.value })}
-                         value={this.state.UserName}
-                         placeholder='Enter Username'
-                         className='a3 text-center'/>
-
-                           <br />
-
-                        <label className='a2'>Password</label>
-                        <input
-                        onChange={(e) => this.setState({ PasswordFromClient: e.target.value })}
-                        type='password'
-                        value={this.state.Password}
-                        placeholder='Enter Password'
-                        className='a3 text-center'/>
-
-                        <br />
-
-                        <button className='a4' onClick={this.OnSubmitClick }>Submit</button>
-                      </form>
-                    </div>
-
-                    <div>{this.state.LoginStatus}</div>
-
-          </div>
   }
 
 }
