@@ -22,10 +22,19 @@ componentDidMount(){
 }
 
 
-OnInputChange = (e) => {
+OnInputChange = async (e) => {
 const SearchTerm = this.state.term
   console.log(SearchTerm)
    this.setState({ term : e.target.value })
+
+   if(SearchTerm){
+     await axios.get(`https://swapi.co/api/planets/?search=${SearchTerm}`)
+     .then(response => this.setState({ Planet: response.data.results[0] }))
+     .catch(err => console.log(err))
+   this.setState({ SearchStatus: false})
+   }else{
+    this.setState({ SearchStatus: 'Please type something for search'})
+   }
 }
 
 

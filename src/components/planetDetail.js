@@ -2,7 +2,9 @@ import React from 'react';
 import './planetDetail.css'
 
 const Planet  = (props) => {
-
+if(props.detail == undefined ){
+  return <div> No result Found </div>
+}else{
   return <div className='container-fluid c3 shadow text-center'>
        <h1 className='c1'>Planet Details</h1>
 
@@ -42,5 +44,7 @@ const Planet  = (props) => {
         </h1>
 
         </div>
+}
+
 }
 export default Planet
