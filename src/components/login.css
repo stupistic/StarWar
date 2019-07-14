@@ -1,8 +1,13 @@
 .a1{
   padding-top: 40px;
   margin-bottom: 40px;
+  font-size: 45px;
+  font-weight: bold;
+  color: #4b7bec;
+  font-family: 'Nosifer', cursive;
 }
 .a2{
+  margin-bottom: 3px;
   width:100px;
   font-weight: bold;
   background-color: #dff9fb
@@ -10,6 +15,8 @@
 .a3{
   width: 150px;
   height: 24px;
+  border-style: ridge;
+  font-family:  sans-serif;
 }
 .a4{
   margin-top: 20px;

@@ -60,10 +60,11 @@ this.setState({ SearchStatus: false})
 
  const search = this.state.term
 if(search.length===0){
-  return <div className='container-fluid text-center  b3'>
+  return <div className='container-fluid text-center  b3  '>
       <div className='b7'>
         <span className='b6 '>Star Wars Planets </span>
-        <div className='float-right  b1'><span className='b4'>{this.props.user[0]}</span><button className='b5' onClick={this.refreshPage}>Logout</button></div>
+
+        <div className='float-right  b1'><span className='b4'>{this.props.user[0]}</span><button className='b5 btn btn-sm' onClick={this.refreshPage}>Logout</button></div>
       </div>
 
         <form  onSubmit={ e => e.preventDefault()} className='text-center'>
@@ -74,9 +75,9 @@ if(search.length===0){
               placeholder ='Enter planet name'/>
               <button className='b8' onClick={this.OnSubmitClick}>Search</button>
         </form>
-         {this.state.SearchStatus}
+         <div className='b9'>{this.state.SearchStatus}</div>
          </div>
-}else return <div className='container-fluid text-center  b3'>
+}else return <div className='container-fluid text-center  b3  '>
         <div className='b7'>
           <span className='b6 '>Star Wars Planets </span>
           <div className='float-right  b1'><span className='b4'>{this.props.user[0]}</span><button className='b5' onClick={this.refreshPage}>Logout</button></div>
@@ -88,9 +89,9 @@ if(search.length===0){
                 value={this.state.term}
                 className = 'text-center b2'
                 placeholder ='Enter planet name'/>
-                <button className='b8' onClick={this.OnSubmitClick}>Search</button>
+                <button className='b8 ' onClick={this.OnSubmitClick}>Search</button>
           </form>
-           {this.state.SearchStatus}
+          <div className='b9'>{this.state.SearchStatus}</div>
             <div className='container-fluid'>
             <Planet detail = {this.state.Planet}/>
 

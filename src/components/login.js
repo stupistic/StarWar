@@ -10,27 +10,16 @@ class Login extends Component {
 
     UserNameFromClient: '',
     PasswordFromClient: '',
-
     UserNameFromBackend: '',
     PasswordFromBackend:'',
     LoginSUCCESS: false,
     LoginFAIL: false
-
-
 
   }
 
 
   OnSubmitClick = async () => {
 const usernamefromclient = this.state.UserNameFromClient
-
-
-
- // console.log(UBackend)
- //  console.log(PBackend)
- //
- //  console.log(usernamefromclient)
- //  console.log(PClient)
 
   await axios.get(`https://swapi.co/api/people/?search=${usernamefromclient}`)
           .then(result => this.setState({
