@@ -46,7 +46,7 @@ const usernamefromclient = this.state.UserNameFromClient
 
     if(PBackend === PClient && usernamefromclient === UBackend){
       console.log('Successfully Login')
-      this.setState({ LoginSUCCESS: 'Successfully Login'
+      this.setState({ LoginSUCCESS: 'Successfully Login', LoginFAIL: false
     })
     }else{
       console.log('Invalid Username or Password')
