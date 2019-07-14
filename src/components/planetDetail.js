@@ -2,7 +2,7 @@ import React from 'react';
 import './planetDetail.css'
 
 const Planet  = (props) => {
-  console.log(props)
+ 
   return <div className='container-fluid c3 shadow'>
        <h1 className='c1'>Planet Details</h1>
 

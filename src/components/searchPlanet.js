@@ -3,12 +3,30 @@ import axios from 'axios'
 import './searchPlanet.css'
 import Planet from './planetDetail'
 
+
 class SearchPlanet extends Component {
 
   state = {
     term: '',
-    Planet:''
+    Planet:'',
+    Planetsdata: ''
+    
   }
+
+
+componentDidMount(){
+  axios.get('https://swapi.co/api/planets/')
+  .then(response => this.setState({ Planetsdata: response.data.results.map((res) => res.name )}))
+  .catch(err => console.log(err))
+}
+
+
+OnInputChange = (e) => {
+const SearchTerm = this.state.term
+  console.log(SearchTerm)
+   this.setState({ term : e.target.value })
+}
+
 
  OnSubmitClick = async () => {
 const SearchTerm = this.state.term
@@ -16,15 +34,14 @@ const SearchTerm = this.state.term
 await axios.get(`https://swapi.co/api/planets/?search=${SearchTerm}`)
 .then(response => this.setState({ Planet: response.data.results[0] }))
 .catch(err => console.log(err))
-
-console.log(this.state.Planet)
   }
 
 
 
   render() {
-console.log(this.state.term)
-console.log(this.props)
+
+
+
     return <div className='container-fluid text-center  b3'>
         <div className='b7'>
           <span className='b6 '>Star Wars Planets </span>
@@ -33,7 +50,7 @@ console.log(this.props)
 
           <form  onSubmit={ e => e.preventDefault()} className='text-center'>
                 <input
-                onChange={ e => this.setState({ term : e.target.value })}
+                onChange={this.OnInputChange}
                 value={this.state.term}
                 className = 'text-center b2'
                 placeholder ='Enter planet name'/>
@@ -42,6 +59,7 @@ console.log(this.props)
 
             <div className='container'>
             <Planet detail = {this.state.Planet}/>
+
             </div>
           </div>
   }
