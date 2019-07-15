@@ -14,6 +14,11 @@ if(props.detail ===undefined ){
         </h1>
 
         <h1 className='c2  float-left row'>
+        <div className=' col  e1' ><span className='float-left'><i class="fas fa-temperature-low d107" /></span>Climate</div>
+         <div className='c4 col  shadow'>{props.detail.climate}</div>
+         </h1>
+
+        <h1 className='c2  float-left row'>
         <div className=' col  e1' ><span className='float-left'><i className="far fa-clock d1 d101"/></span>Rotation Period</div>
          <div className='c4 col  shadow'>{props.detail.rotation_period}</div>
          </h1>
@@ -29,7 +34,7 @@ if(props.detail ===undefined ){
         </h1>
 
         <h1 className='c2  float-left row'>
-        <div className=' col  e1'><span className='float-left'><i class="fas fa-map-marker-alt d1 d104" /></span> Terrain</div>
+        <div className=' col  e1'><span className='float-left'><i className="fas fa-map-marker-alt d1 d104" /></span> Terrain</div>
          <div className='c4 col shadow '>{props.detail.terrain}</div>
          </h1>
 
@@ -39,7 +44,7 @@ if(props.detail ===undefined ){
          </h1>
 
         <h1 className='c2  float-left row'>
-        <div className=' col  e1'><span className='float-left'><i class="fa fa-users d1 d106" /> </span>Population </div>
+        <div className=' col  e1'><span className='float-left'><i className="fa fa-users d1 d106" /> </span>Population </div>
         <div className='c4 col  shadow'>{props.detail.population}</div>
         </h1>
 

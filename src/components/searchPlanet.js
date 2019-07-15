@@ -17,18 +17,18 @@ class SearchPlanet extends Component {
 
 componentDidMount(){
   axios.get('https://swapi.co/api/planets/')
-  .then(response => this.setState({ Planetsdata: response.data.results.map((res) => res.name )}))
+  .then(response => this.setState({ Planetsdata: response.data.results.map((res) => res )}))
   .catch(err => console.log(err))
 }
 
 
-OnInputChange = async (e) => {
+OnInputChange =  async (e) => {
 const SearchTerm = this.state.term
   console.log(SearchTerm)
    this.setState({ term : e.target.value })
 
    if(SearchTerm){
-     await axios.get(`https://swapi.co/api/planets/?search=${SearchTerm}`)
+  await axios.get(`https://swapi.co/api/planets/?search=${SearchTerm}`)
      .then(response => this.setState({ Planet: response.data.results[0] }))
      .catch(err => console.log(err))
    this.setState({ SearchStatus: false})
@@ -57,7 +57,8 @@ this.setState({ SearchStatus: false})
 
 
   render() {
-
+console.log(this.state.Planetsdata)
+console.log(this.state.Planet)
  const search = this.state.term
 if(search.length===0){
   return <div className='container-fluid text-center  b3  '>
