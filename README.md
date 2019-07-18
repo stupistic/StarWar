@@ -6,4 +6,4 @@
    -> run command "npm start" \
    -> go to the browser and search for given local host address.
 
-Note : before Run, block CORS issue on prefer browser by installing CORS plugin as CORS issue is not fixed yet.
+ 
