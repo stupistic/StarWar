@@ -5,5 +5,6 @@
    -> run command "npm install" \
    -> run command "npm start" \
    -> go to the browser and search for given local host address.
+   .
 
  
